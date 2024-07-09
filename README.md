@@ -17,6 +17,16 @@ Aby uruchomić projekt należy użyć docker compose. Można też użyć komend 
 
 - ```make build``` lub ```docker compose build```
 
+Przy pierwszym postawieniu kontenerów należy uruchomić composer:
+
+- ```docker compose run --rm php composer install```
+
+Jak i również migracje:
+
+- ```docker compose run --rm php php bin/console doctrine:migrations:migrate --no-interaction --env=dev```
+
+- ```docker compose run --rm php php bin/console doctrine:migrations:migrate --no-interaction --env=test```
+
 Aby postawić kontenery:
 
 - ``` make up ``` lub ```docker compose up -d```
@@ -27,4 +37,82 @@ Aby zatrzymać kontenery:
 
 Aby uruchomić testy:
 
-- ```make tests``` lub ```docker compose run --rm app vendor/bin/phpunit tests```
+- ```make tests``` lub ```docker compose run --rm php vendor/bin/phpunit tests```
+
+POST
+```http://localhost:8080/order```
+
+body:
+```{
+    "items": [
+        {"productId": 1, "quantity": 10},
+        {"productId": 2, "quantity": 6}
+    ]
+}
+```
+
+Response:
+```{
+    "message": "Order created",
+    "order": {
+        "id": 1,
+        "totalPrice": "3130.62",
+        "currency": "USD",
+        "items": [
+            {
+                "productId": 1,
+                "quantity": 10
+            },
+            {
+                "productId": 2,
+                "quantity": 6
+            }
+        ]
+    }
+}
+```
+POST
+```http://localhost:8080/product```
+
+Body:
+```
+{
+    "name": "example",
+    "price": 21.37
+}
+```
+
+Response:
+```
+{
+    "status": "Product created",
+    "product": {
+        "id": 3,
+        "name": "example",
+        "price": "USD 21.37 USD"
+    }
+}
+```
+GET
+```http://localhost:8080/order/{id}```
+
+Response:
+```
+{
+    "order": {
+        "id": 1,
+        "totalPrice": "3130.62",
+        "currency": "USD",
+        "items": [
+            {
+                "productId": 1,
+                "quantity": 10
+            },
+            {
+                "productId": 2,
+                "quantity": 6
+            }
+        ]
+    }
+}
+```

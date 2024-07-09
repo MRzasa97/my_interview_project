@@ -27,7 +27,6 @@ services:
       - .:/var/www/symfony
     depends_on:
       - db
-    entrypoint: /usr/local/bin/docker-entrypoint.sh
 
   web:
     image: nginx:latest

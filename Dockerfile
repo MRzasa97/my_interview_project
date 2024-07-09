@@ -18,13 +18,9 @@ WORKDIR /var/www/symfony
 
 COPY . .
 
-COPY docker-entrypoint.sh /usr/local/bin/
-
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN composer install
-
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Expose port 9000 and start php-fpm server
 CMD ["php-fpm"]
