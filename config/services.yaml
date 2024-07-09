@@ -20,5 +20,73 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Service\ProductCreationService:
+        arguments:
+            $productRepository: '@App\Repository\ProductRepository'
+            $validator: '@validator'
+
+    App\Service\Interfaces\ProductCreationServiceInterface:
+        alias: App\Service\ProductCreationService
+
+    App\Service\Calculators\TotalPriceCalculator:
+        tags: ['order.calculator']
+
+    App\Service\Calculators\VatPriceCalculator:
+        tags: ['order.calculator']
+
+    App\Service\Calculators\NetPriceCalculator:
+        tags: ['order.calculator']
+
+    App\Service\OrderPriceCalculatorService:
+        arguments:
+            $calculators: !tagged order.calculator
+
+    App\Service\OrderProcessingService:
+        arguments:
+            $productRepository: '@App\Repository\ProductRepository'
+            $orderRepository: '@App\Repository\OrderRepository'
+            $logger: '@logger'
+            $validator: '@validator'
+            $calculator: '@App\Service\OrderPriceCalculatorService'
+
+    App\Service\Interfaces\OrderProcessingServiceInterface:
+        alias: App\Service\OrderProcessingService
+
+    App\EventListener\ResponseHeaderListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+    
+    App\Repository\Interfaces\OrderItemRepositoryInterface:
+        alias: App\Repository\OrderItemRepository
+
+    App\Repository\OrderItemRepository:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags: ['doctrine.repository_service']
+
+    App\Repository\Interfaces\OrderRepositoryInterface:
+        alias: App\Repository\OrderRepository
+
+    App\Repository\OrderRepository:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags: ['doctrine.repository_service']
+
+    App\Repository\Interfaces\ProductRepositoryInterface:
+        alias: App\Repository\ProductRepository
+
+    App\Repository\ProductRepository:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags: ['doctrine.repository_service']
+
+    App\Validator\OrderValidator:
+        arguments:
+            $validator: '@validator'
+
+    App\Validator\ProductValidator:
+        arguments:
+            $validator: '@validator'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

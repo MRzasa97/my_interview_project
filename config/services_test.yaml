@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        public: true 
+    Symfony\Component\Validator\Validator\ValidatorInterface:
+        alias: validator
+        public: true
+
+    App\Repository\Interfaces\ProductRepositoryInterface:
+        alias: App\Repository\ProductRepository
+        public: true
+
+    App\Repository\Interfaces\OrderRepositoryInterface:
+        alias: App\Repository\OrderRepository
+        public: true
+
+    App\Repository\Interfaces\OrderItemRepositoryInterface:
+        alias: App\Repository\OrderItemRepository
+        public: true

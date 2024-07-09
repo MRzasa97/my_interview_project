@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    ports:
+      - "3306:3306"
+  db_test:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    ports:
+      - "3307:3307"
+  php:
+    build: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/var/www/symfony
+    depends_on:
+      - db
+    entrypoint: /usr/local/bin/docker-entrypoint.sh
+
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/symfony
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
