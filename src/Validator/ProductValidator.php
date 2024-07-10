@@ -5,6 +5,7 @@ namespace App\Validator;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Exception\ValidatorException;
+use Brick\Money\Money;
 
 class ProductValidator
 {
@@ -45,7 +46,15 @@ class ProductValidator
                     'type' => 'numeric',
                     'message' => 'Price must be a numeric value.',
                 ]),
-                new Assert\PositiveOrZero()
+                new Assert\PositiveOrZero(),
+                new Assert\Callback(function ($price, $context) {
+                    try {
+                        Money::of($price, 'USD');
+                    } catch (\Exception $e) {
+                        $context->buildViolation('Price must be a valid money format.')
+                            ->addViolation();
+                    }
+                }),
             ],
         ]);
 
