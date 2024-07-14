@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\OrderItem;
-use App\Repository\Interfaces\OrderItemRepositoryInterface;
+use App\Repository\Interface\OrderItemRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;

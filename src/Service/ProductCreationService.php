@@ -4,8 +4,8 @@ namespace App\Service;
 
 use Brick\Money\Money;
 use App\Entity\Product;
-use App\Service\Interfaces\ProductCreationServiceInterface;
-use App\Repository\Interfaces\ProductRepositoryInterface;
+use App\Service\Interface\ProductCreationServiceInterface;
+use App\Repository\Interface\ProductRepositoryInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Exception\ValidatorException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;

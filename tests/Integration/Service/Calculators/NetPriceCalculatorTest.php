@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\Service\Calculators;
+namespace App\Tests\Service\Calculator;
 
 use App\Entity\Order;
-use App\Service\Calculators\NetPriceCalculator;
+use App\Service\Calculator\NetPriceCalculator;
 use Brick\Money\Money;
 use PHPUnit\Framework\TestCase;
 

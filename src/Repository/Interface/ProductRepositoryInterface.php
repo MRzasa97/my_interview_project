@@ -1,26 +1,26 @@
 <?php
-namespace App\Repository\Interfaces;
+namespace App\Repository\Interface;
 
-use App\Entity\Order;
+use App\Entity\Product;
 
-interface OrderRepositoryInterface
+interface ProductRepositoryInterface
 {
-    public function find(int $id): ?Order;
+    public function find(int $id): ?Product;
     /**
-     * @return Order[]
+     * @return Product[]
      */
     public function findAll(): array;
     /**
      * @param array<string, mixed> $criteria
      * @param array<string, string>|null $orderBy
-     * @return Order[]
+     * @return Product[]
      */
     public function findBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): array;
     /**
      * @param array<string, mixed> $criteria
      * @param array<string, string>|null $orderBy
      */
-    public function findOneBy(array $criteria, ?array $orderBy = null): ?Order;
-    public function save(Order $order): void;
-    public function delete(Order $order): void;
+    public function findOneBy(array $criteria, ?array $orderBy = null): ?Product;
+    public function save(Product $product): void;
+    public function delete(Product $product): void;
 }

@@ -5,7 +5,7 @@ namespace App\Tests\Integration\Repository;
 use App\Entity\OrderItem;
 use App\Entity\Product;
 use App\Entity\Order;
-use App\Repository\Interfaces\OrderItemRepositoryInterface;
+use App\Repository\Interface\OrderItemRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Brick\Money\Money;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

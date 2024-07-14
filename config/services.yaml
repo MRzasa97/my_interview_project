@@ -25,16 +25,16 @@ services:
             $productRepository: '@App\Repository\ProductRepository'
             $validator: '@validator'
 
-    App\Service\Interfaces\ProductCreationServiceInterface:
+    App\Service\Interface\ProductCreationServiceInterface:
         alias: App\Service\ProductCreationService
 
-    App\Service\Calculators\TotalPriceCalculator:
+    App\Service\Calculator\TotalPriceCalculator:
         tags: ['order.calculator']
 
-    App\Service\Calculators\VatPriceCalculator:
+    App\Service\Calculator\VatPriceCalculator:
         tags: ['order.calculator']
 
-    App\Service\Calculators\NetPriceCalculator:
+    App\Service\Calculator\NetPriceCalculator:
         tags: ['order.calculator']
 
     App\Service\OrderPriceCalculatorService:
@@ -49,14 +49,14 @@ services:
             $validator: '@validator'
             $calculator: '@App\Service\OrderPriceCalculatorService'
 
-    App\Service\Interfaces\OrderProcessingServiceInterface:
+    App\Service\Interface\OrderProcessingServiceInterface:
         alias: App\Service\OrderProcessingService
 
     App\EventListener\ResponseHeaderListener:
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
     
-    App\Repository\Interfaces\OrderItemRepositoryInterface:
+    App\Repository\Interface\OrderItemRepositoryInterface:
         alias: App\Repository\OrderItemRepository
 
     App\Repository\OrderItemRepository:
@@ -64,7 +64,7 @@ services:
             - '@doctrine.orm.entity_manager'
         tags: ['doctrine.repository_service']
 
-    App\Repository\Interfaces\OrderRepositoryInterface:
+    App\Repository\Interface\OrderRepositoryInterface:
         alias: App\Repository\OrderRepository
 
     App\Repository\OrderRepository:
@@ -72,7 +72,7 @@ services:
             - '@doctrine.orm.entity_manager'
         tags: ['doctrine.repository_service']
 
-    App\Repository\Interfaces\ProductRepositoryInterface:
+    App\Repository\Interface\ProductRepositoryInterface:
         alias: App\Repository\ProductRepository
 
     App\Repository\ProductRepository:

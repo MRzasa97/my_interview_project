@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Service\Interfaces\OrderProcessingServiceInterface;
-use App\Service\Interfaces\OrderRetrievalServiceInterface;
+use App\Service\Interface\OrderProcessingServiceInterface;
+use App\Service\Interface\OrderRetrievalServiceInterface;
 use App\Validator\OrderValidator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

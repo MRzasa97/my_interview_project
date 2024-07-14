@@ -3,7 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Order;
-use App\Service\Interfaces\CalculatorInterface;
+use App\Service\Interface\CalculatorInterface;
 
 class OrderPriceCalculatorService implements CalculatorInterface
 {

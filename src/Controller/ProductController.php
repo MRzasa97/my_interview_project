@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\Interfaces\ProductCreationServiceInterface;
+use App\Service\Interface\ProductCreationServiceInterface;
 use App\Validator\ProductValidator;
 use Brick\Money\Money;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

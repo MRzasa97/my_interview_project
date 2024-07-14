@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Service\Calculators;
+namespace App\Tests\Service\Calculator;
 
 use App\Entity\Order;
 use App\Entity\OrderItem;
 use App\Entity\Product;
-use App\Service\Calculators\TotalPriceCalculator;
+use App\Service\Calculator\TotalPriceCalculator;
 use Brick\Money\Money;
 use Brick\Money\Exception\MoneyMismatchException;
 use Doctrine\Common\Collections\ArrayCollection;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Service\Calculators;
+namespace App\Service\Calculator;
 
 use App\Entity\Order;
-use App\Service\Interfaces\CalculatorInterface;
+use App\Service\Interface\CalculatorInterface;
 use Brick\Money\Money;
 use Brick\Math\RoundingMode;
 

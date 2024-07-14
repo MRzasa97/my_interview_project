@@ -5,14 +5,14 @@ services:
         alias: validator
         public: true
 
-    App\Repository\Interfaces\ProductRepositoryInterface:
+    App\Repository\Interface\ProductRepositoryInterface:
         alias: App\Repository\ProductRepository
         public: true
 
-    App\Repository\Interfaces\OrderRepositoryInterface:
+    App\Repository\Interface\OrderRepositoryInterface:
         alias: App\Repository\OrderRepository
         public: true
 
-    App\Repository\Interfaces\OrderItemRepositoryInterface:
+    App\Repository\Interface\OrderItemRepositoryInterface:
         alias: App\Repository\OrderItemRepository
         public: true

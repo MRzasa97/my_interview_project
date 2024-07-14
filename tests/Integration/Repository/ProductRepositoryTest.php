@@ -3,7 +3,7 @@
 namespace App\Tests\Integration\Repository;
 
 use App\Entity\Product;
-use App\Repository\Interfaces\ProductRepositoryInterface;
+use App\Repository\Interface\ProductRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Brick\Money\Money;

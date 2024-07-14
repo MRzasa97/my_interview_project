@@ -22,5 +22,9 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN composer install
 
+RUN mkdir -p var/cache/dev/doctrine/orm/Proxies && \
+    chown -R www-data:www-data var/cache && \
+    chmod -R 775 var/cache
+
 # Expose port 9000 and start php-fpm server
 CMD ["php-fpm"]

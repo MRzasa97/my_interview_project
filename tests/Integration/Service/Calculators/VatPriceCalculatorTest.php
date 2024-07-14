@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Service\Calculators;
+namespace App\Tests\Service\Calculator;
 
 use App\Entity\Order;
 use App\Entity\OrderItem;
 use App\Entity\Product;
-use App\Service\Calculators\VatPriceCalculator;
+use App\Service\Calculator\VatPriceCalculator;
 use Brick\Money\Money;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;

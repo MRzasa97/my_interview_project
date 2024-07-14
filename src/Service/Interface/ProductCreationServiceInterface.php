@@ -1,5 +1,5 @@
 <?php
-namespace App\Service\Interfaces;
+namespace App\Service\Interface;
 
 use App\Entity\Product;
 use Brick\Money\Money;

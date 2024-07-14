@@ -3,8 +3,8 @@
 namespace App\Service;
 
 use App\Entity\Order;
-use App\Repository\Interfaces\OrderRepositoryInterface;
-use App\Service\Interfaces\OrderRetrievalServiceInterface;
+use App\Repository\Interface\OrderRepositoryInterface;
+use App\Service\Interface\OrderRetrievalServiceInterface;
 
 class OrderRetrievalService implements OrderRetrievalServiceInterface
 {

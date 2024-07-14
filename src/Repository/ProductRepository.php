@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
-use App\Repository\Interfaces\ProductRepositoryInterface;
+use App\Repository\Interface\ProductRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
